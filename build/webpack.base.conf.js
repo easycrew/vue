@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const webpack = require("webpack")
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -22,12 +23,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'], //自动解析确定的拓展名,使导入模块时不带拓展名
     alias: {
-      'src': resolve('../src'),
-      'components': resolve('../src/components'),
-      'api': resolve('../src/api'),
-      'utils': resolve('../src/utils'),
-      'store': resolve('../src/store'),
-      'router': resolve('../src/router')
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+      'src': resolve('src'),
+      'components': resolve('src/components'),
+      'api': resolve('src/api'),
+      'utils': resolve('src/utils'),
+      'store': resolve('src/store'),
+      'router': resolve('src/router')
     }
   },
   module: {
@@ -93,11 +96,12 @@ module.exports = {
         ]
       }
     ]
-  }
-  plugin:[
+  },
+  plugins: [
+    // new webpack.optimize.CommonsChunkPlugin('common.js'),
     new webpack.ProvidePlugin({
-       $: 'jquery' ,
-       'jQuery': 'jquery'
-     })
-  ]
+    jQuery: "jquery",
+    $: "jquery"
+    })
+    ]
 }
