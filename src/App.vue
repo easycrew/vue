@@ -1,21 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {name: 'app'}
+export default {
+  name: 'APP'
+}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import '~normalize.css/normalize.css';// 重置浏览器默认样式，保持统一
+@import './styles/index.scss'; //全局自定义css样式
 </style>

@@ -77,31 +77,14 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: /\.css$/,
-        use: [
-            {
-              loader: "style-loader"
-            },
-            {
-              loader: "css-loader",
-              options: {
-                modules: true
-              }
-            },
-            {
-              loader: "postcss-loader"
-            }
-        ]
       }
     ]
-  },
-  plugins: [
-    // new webpack.optimize.CommonsChunkPlugin('common.js'),
-    new webpack.ProvidePlugin({
-    jQuery: "jquery",
-    $: "jquery"
-    })
-    ]
+  }
+  // plugins: [
+  //   // new webpack.optimize.CommonsChunkPlugin('common.js'),
+  //   new webpack.ProvidePlugin({
+  //   jQuery: "jquery",
+  //   $: "jquery"
+  //   })
+  //   ]
 }
